@@ -44,7 +44,7 @@ export function LanguageSelectorDropdown() {
           </div>
         </OverlayTrigger>
       </Dropdown.Toggle>
-      <Dropdown.Menu className="p-0 m-0 dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround">
+      <Dropdown.Menu className="p-0 m-0 dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround w-150px">
         <ul className="navi navi-hover py-4">
           {languages.map((language) => (
             <li

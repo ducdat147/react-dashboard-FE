@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const LOGIN_URL = `${process.env.REACT_APP_API_URL}/auth/login`;
-export const REGISTER_URL = "api/auth/register";
-export const REQUEST_PASSWORD_URL = "api/auth/forgot-password";
-export const ME_URL = `${process.env.REACT_APP_API_URL}/auth/me`;
+export const LOGIN_URL = `${process.env.REACT_APP_API_URL}/accounts/login`;
+export const REGISTER_URL = `${process.env.REACT_APP_API_URL}/accounts/register`;
+export const REQUEST_PASSWORD_URL = `${process.env.REACT_APP_API_URL}/accounts/forgot-password`;
+export const ME_URL = `${process.env.REACT_APP_API_URL}/accounts/me`;
 
 export function login(email, password) {
   return axios.post(LOGIN_URL, { email, password });
