@@ -38,7 +38,7 @@ export default function mockAuth(mock) {
         firstname: fullname,
         lastname: "Stark",
         roles: [2], // Manager
-        authToken: "auth-token-" + Math.random(),
+        access: "auth-token-" + Math.random(),
         refreshToken: "auth-token-" + Math.random(),
         pic: process.env.PUBLIC_URL + "/media/users/default.jpg",
       };
@@ -70,13 +70,13 @@ export default function mockAuth(mock) {
   });
 
   mock.onGet(ME_URL).reply(({ headers: { Authorization } }) => {
-    const authToken =
+    const access =
       Authorization &&
       Authorization.startsWith("Bearer ") &&
       Authorization.slice("Bearer ".length);
 
-    if (authToken) {
-      const user = userTableMock.find((x) => x.authToken === authToken);
+    if (access) {
+      const user = userTableMock.find((x) => x.access === access);
 
       if (user) {
         return [200, { ...user, password: undefined }];

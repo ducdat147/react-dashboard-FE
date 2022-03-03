@@ -6,7 +6,7 @@ export default [
     username: "admin",
     password: "demo",
     email: "admin@demo.com",
-    authToken: "auth-token-8f3ae836da744329a6f93bf20594b5cc",
+    access: "auth-token-8f3ae836da744329a6f93bf20594b5cc",
     refreshToken: "auth-token-f8c137a2c98743f48b643e71161d90aa",
     roles: [1], // Administrator
     pic: toAbsoluteUrl("/media/users/300_21.jpg"),
@@ -61,7 +61,7 @@ export default [
     username: "user",
     password: "demo",
     email: "user@demo.com",
-    authToken: "auth-token-6829bba69dd3421d8762-991e9e806dbf",
+    access: "auth-token-6829bba69dd3421d8762-991e9e806dbf",
     refreshToken: "auth-token-f8e4c61a318e4d618b6c199ef96b9e55",
     roles: [2], // Manager
     pic: toAbsoluteUrl("/media/users/100_2.jpg"),
@@ -115,7 +115,7 @@ export default [
     username: "guest",
     password: "demo",
     email: "guest@demo.com",
-    authToken: "auth-token-d2dff7b82f784de584b60964abbe45b9",
+    access: "auth-token-d2dff7b82f784de584b60964abbe45b9",
     refreshToken: "auth-token-c999ccfe74aa40d0aa1a64c5e620c1a5",
     roles: [3], // Guest
     pic: toAbsoluteUrl("/media/users/default.jpg"),

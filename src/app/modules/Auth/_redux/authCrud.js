@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const LOGIN_URL = `${process.env.REACT_APP_API_URL}/accounts/login`;
-export const REGISTER_URL = `${process.env.REACT_APP_API_URL}/accounts/register`;
-export const REQUEST_PASSWORD_URL = `${process.env.REACT_APP_API_URL}/accounts/forgot-password`;
-export const ME_URL = `${process.env.REACT_APP_API_URL}/accounts/me`;
+export const LOGIN_URL = `${process.env.REACT_APP_API_URL}/apis/accounts/login`;
+export const REGISTER_URL = `${process.env.REACT_APP_API_URL}/apis/accounts/register`;
+export const REQUEST_PASSWORD_URL = `${process.env.REACT_APP_API_URL}/apis/accounts/forgot-password`;
+export const ME_URL = `${process.env.REACT_APP_API_URL}/apis/accounts/profile`;
 
-export function login(email, password) {
-  return axios.post(LOGIN_URL, { email, password });
+export function login(username, password) {
+  return axios.post(LOGIN_URL, { username, password });
 }
 
 export function register(email, fullname, username, password) {

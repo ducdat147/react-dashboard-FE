@@ -98,8 +98,8 @@ function Registration(props) {
       setSubmitting(true);
       enableLoading();
       register(values.email, values.fullname, values.username, values.password)
-        .then(({ data: { authToken } }) => {
-          props.register(authToken);
+        .then(({ data: { access } }) => {
+          props.register(access);
           disableLoading();
           setSubmitting(false);
         })

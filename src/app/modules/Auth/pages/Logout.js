@@ -10,12 +10,12 @@ class Logout extends Component {
   }
 
   render() {
-    const { hasAuthToken } = this.props;
-    return hasAuthToken ? <LayoutSplashScreen /> : <Redirect to="/auth/login" />;
+    const { hasAccess } = this.props;
+    return hasAccess ? <LayoutSplashScreen /> : <Redirect to="/auth/login" />;
   }
 }
 
 export default connect(
-  ({ auth }) => ({ hasAuthToken: Boolean(auth.authToken) }),
+  ({ auth }) => ({ hasAccess: Boolean(auth.access) }),
   auth.actions
 )(Logout);

@@ -18,17 +18,16 @@ import { login } from "../_redux/authCrud";
 */
 
 const initialValues = {
-  email: "admin@demo.com",
-  password: "demo",
+  username: "admin",
+  password: "1",
 };
 
 function Login(props) {
   const { intl } = props;
   const [loading, setLoading] = useState(false);
   const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Wrong email format")
-      .min(3, "Minimum 3 symbols")
+    username: Yup.string()
+      .min(1, "Minimum 1 symbols")
       .max(50, "Maximum 50 symbols")
       .required(
         intl.formatMessage({
@@ -36,7 +35,7 @@ function Login(props) {
         })
       ),
     password: Yup.string()
-      .min(3, "Minimum 3 symbols")
+      .min(1, "Minimum 1 symbols")
       .max(50, "Maximum 50 symbols")
       .required(
         intl.formatMessage({
@@ -71,11 +70,11 @@ function Login(props) {
     onSubmit: (values, { setStatus, setSubmitting }) => {
       enableLoading();
       setTimeout(() => {
-        login(values.email, values.password)
-          .then(({ data: { authToken } }) => {
+        login(values.username, values.password)
+          .then(({ data: { access } }) => {
             disableLoading();
 
-            props.login(authToken);
+            props.login(access);
           })
           .catch(() => {
             setStatus(
@@ -117,25 +116,25 @@ function Login(props) {
         ) : (
           <div className="mb-10 alert alert-custom alert-light-info alert-dismissible">
             <div className="alert-text ">
-              Use account <strong>admin@demo.com</strong> and password{" "}
-              <strong>demo</strong> to continue.
+              Use account <strong>admin</strong> and password{" "}
+              <strong>1</strong> to continue.
             </div>
           </div>
         )}
 
         <div className="form-group fv-plugins-icon-container">
           <input
-            placeholder="Email"
-            type="email"
+            placeholder="Username"
+            type="username"
             className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "email"
+              "username"
             )}`}
-            name="email"
-            {...formik.getFieldProps("email")}
+            name="username"
+            {...formik.getFieldProps("username")}
           />
-          {formik.touched.email && formik.errors.email ? (
+          {formik.touched.username && formik.errors.username ? (
             <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.email}</div>
+              <div className="fv-help-block">{formik.errors.username}</div>
             </div>
           ) : null}
         </div>

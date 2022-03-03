@@ -8,14 +8,14 @@ function AuthInit(props) {
   const didRequest = useRef(false);
   const dispatch = useDispatch();
   const [showSplashScreen, setShowSplashScreen] = useState(true);
-  const { authToken } = useSelector(
+  const { access } = useSelector(
     ({ auth }) => ({
-      authToken: auth.authToken,
+      access: auth.access,
     }),
     shallowEqual
   );
 
-  // We should request user by authToken before rendering the application
+  // We should request user by access before rendering the application
   useEffect(() => {
     const requestUser = async () => {
       try {
@@ -35,7 +35,7 @@ function AuthInit(props) {
       return () => (didRequest.current = true);
     };
 
-    if (authToken) {
+    if (access) {
       requestUser();
     } else {
       dispatch(props.fulfillUser(undefined));

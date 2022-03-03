@@ -5,11 +5,11 @@ import {get, merge} from "lodash";
 import {FormHelperText, Switch} from "@material-ui/core";
 import clsx from "clsx";
 // https://github.com/conorhastings/react-syntax-highlighter#prism
-import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
+// import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
 // See https://github.com/PrismJS/prism-themes
-import {coy as highlightStyle} from "react-syntax-highlighter/dist/esm/styles/prism";
+// import {coy as highlightStyle} from "react-syntax-highlighter/dist/esm/styles/prism";
 import {useHtmlClassService, setLayoutConfig, getInitLayoutConfig} from "../../layout";
-import {Card, CardBody, CardHeader, Notice} from "../controls";
+// import {Card, CardBody, CardHeader, Notice} from "../controls";
 
 const localStorageActiveTabKey = "builderActiveTab";
 
@@ -34,15 +34,6 @@ export function Builder() {
 
     return (
         <>
-            <Notice svg="/media/svg/icons/Tools/Compass.svg">
-                <p>
-                    The layout builder is to assist your set and configure your preferred project layout specifications
-                    and preview it in real time.
-                    The configured layout options will be saved until you change or reset them.
-                    To use the layout builder, choose the layout options and click the <code>Preview</code> button to
-                    preview the changes.
-                </p>
-            </Notice>
             {/*Formic off site: https://jaredpalmer.com/formik/docs/overview*/}
             <Formik
                 initialValues={initialValues}
@@ -504,7 +495,7 @@ export function Builder() {
                                                 onClick={handleSubmit}
                                                 className={`btn btn-primary font-weight-bold mr-2`}
                                             >
-                                                <i className="fa fa-eye"/> Preview
+                                                <i className="fa fa-eye"/> Apply
                                             </button>
                                             {" "}
                                             <button
@@ -512,7 +503,7 @@ export function Builder() {
                                                 onClick={handleReset}
                                                 className={`btn btn-clean font-weight-bold mr-2`}
                                             >
-                                                <i className="fa fa-recycle"/> Reset
+                                                <i className="fa fa-recycle"/> Default
                                             </button>
                                             {" "}
                                             <span
@@ -527,7 +518,7 @@ export function Builder() {
                         </div>
 
                         {/*Config*/}
-                        <Card className="mt-4">
+                        {/*<Card className="mt-4">
                             <CardHeader
                                 title={
                                     <>
@@ -551,7 +542,7 @@ export function Builder() {
                                     {JSON.stringify(values, null, 2)}
                                 </SyntaxHighlighter>
                             </CardBody>
-                        </Card>
+                        </Card>*/}
                     </>
                 )}
             </Formik>
