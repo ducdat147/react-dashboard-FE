@@ -7,8 +7,10 @@ import Login from "./Login";
 import Registration from "./Registration";
 import ForgotPassword from "./ForgotPassword";
 import "../../../../_metronic/_assets/sass/pages/login/classic/login-1.scss";
+import {FormattedMessage} from "react-intl";
 
 export function AuthPage() {
+  const today = new Date().getFullYear();
   return (
     <>
       <div className="d-flex flex-column flex-root">
@@ -39,7 +41,7 @@ export function AuthPage() {
               {/* start:: Aside content */}
               <div className="flex-column-fluid d-flex flex-column justify-content-center">
                 <h3 className="font-size-h1 mb-5 text-white">
-                  Welcome to Metronic!
+                  <FormattedMessage id="AUTH.LABEL.TITLE" />
                 </h3>
                 <p className="font-weight-lighter text-white opacity-80">
                   The ultimate Bootstrap & React 16 admin theme framework for
@@ -51,15 +53,9 @@ export function AuthPage() {
               {/* start:: Aside footer for desktop */}
               <div className="d-none flex-column-auto d-lg-flex justify-content-between mt-10">
                 <div className="opacity-70 font-weight-bold	text-white">
-                  &copy; 2020 Metronic
+                  &copy; {today.toString()}
                 </div>
                 <div className="d-flex">
-                  <Link to="/terms" className="text-white">
-                    Privacy
-                  </Link>
-                  <Link to="/terms" className="text-white ml-10">
-                    Legal
-                  </Link>
                   <Link to="/terms" className="text-white ml-10">
                     Contact
                   </Link>
@@ -73,21 +69,6 @@ export function AuthPage() {
 
           {/*begin::Content*/}
           <div className="d-flex flex-column flex-row-fluid position-relative p-7 overflow-hidden">
-            {/*begin::Content header*/}
-            <div className="position-absolute top-0 right-0 text-right mt-5 mb-15 mb-lg-0 flex-column-auto justify-content-center py-5 px-10">
-              <span className="font-weight-bold text-dark-50">
-                Don't have an account yet?
-              </span>
-              <Link
-                to="/auth/registration"
-                className="font-weight-bold ml-2"
-                id="kt_login_signup"
-              >
-                Sign Up!
-              </Link>
-            </div>
-            {/*end::Content header*/}
-
             {/* begin::Content body */}
             <div className="d-flex flex-column-fluid flex-center mt-30 mt-lg-0">
               <Switch>

@@ -23,6 +23,8 @@ const initialValues = {
 };
 
 function Login(props) {
+  // Name page
+  document.title = "" + process.env.REACT_APP_NAME
   const { intl } = props;
   const [loading, setLoading] = useState(false);
   const LoginSchema = Yup.object().shape({
@@ -114,12 +116,7 @@ function Login(props) {
             <div className="alert-text font-weight-bold">{formik.status}</div>
           </div>
         ) : (
-          <div className="mb-10 alert alert-custom alert-light-info alert-dismissible">
-            <div className="alert-text ">
-              Use account <strong>admin</strong> and password{" "}
-              <strong>1</strong> to continue.
-            </div>
-          </div>
+          <></>
         )}
 
         <div className="form-group fv-plugins-icon-container">

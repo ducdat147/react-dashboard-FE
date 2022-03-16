@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 100;
+    src: url(SVN-Poppins-Thin.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    src: url(SVN-Poppins-ExtraLight.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: url(SVN-Poppins-Light.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url(SVN-Poppins-Regular.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src: url(SVN-Poppins-Medium.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: url(SVN-Poppins-SemiBold.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: url(SVN-Poppins-Bold.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    src: url(SVN-Poppins-ExtraBold.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 900;
+    src: url(SVN-Poppins-Black.otf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 100;
+    src: url(SVN-Poppins-Thin.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    src: url(SVN-Poppins-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: url(SVN-Poppins-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url(SVN-Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src: url(SVN-Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: url(SVN-Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: url(SVN-Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    src: url(SVN-Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 900;
+    src: url(SVN-Poppins-Black.ttf);
+}
