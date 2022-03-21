@@ -41,7 +41,7 @@ export function AuthPage() {
               {/* start:: Aside content */}
               <div className="flex-column-fluid d-flex flex-column justify-content-center">
                 <h3 className="font-size-h1 mb-5 text-white">
-                  <FormattedMessage id="AUTH.LABEL.TITLE" />
+                  <FormattedMessage id="AUTH.LABEL.TITLE" /> {process.env.REACT_APP_NAME}
                 </h3>
                 <p className="font-weight-lighter text-white opacity-80">
                   The ultimate Bootstrap & React 16 admin theme framework for

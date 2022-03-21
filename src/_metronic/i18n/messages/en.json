@@ -16,7 +16,7 @@
 	"AUTH.INPUT.FULLNAME": "Fullname",
 	"AUTH.INPUT.PASSWORD": "Password",
 	"AUTH.INPUT.USERNAME": "Username",
-	"AUTH.LABEL.TITLE": "Welcome to APP",
+	"AUTH.LABEL.TITLE": "Welcome to",
 	"AUTH.LOGIN.BUTTON": "Sign In",
 	"AUTH.LOGIN.TITLE": "Login account",
 	"AUTH.REGISTER.DESC": "Enter your details to create your account",
