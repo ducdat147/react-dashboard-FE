@@ -19,9 +19,11 @@
 	"AUTH.LABEL.TITLE": "Welcome to",
 	"AUTH.LOGIN.BUTTON": "Sign In",
 	"AUTH.LOGIN.TITLE": "Login account",
+	"AUTH.LOGIN.TITLE_2": "Enter your username and password",
 	"AUTH.REGISTER.DESC": "Enter your details to create your account",
 	"AUTH.REGISTER.SUCCESS": "Your account has been successfully registered.",
 	"AUTH.REGISTER.TITLE": "Sign up",
+	"AUTH.SIGN_OUT": "Sign out",
 	"AUTH.VALIDATION.AGREEMENT_REQUIRED": "Accepting terms & conditions are required",
 	"AUTH.VALIDATION.INVALID": "{name} is not valid",
 	"AUTH.VALIDATION.INVALID_FIELD": "Field is not valid",
@@ -66,5 +68,10 @@
 	"MENU.FEATURES": "Features",
 	"MENU.NEW": "new",
 	"MENU.PAGES": "Pages",
+	"TRANSLATOR.CHANGE_PASSWORD.LABEL": "Change your password",
+	"TRANSLATOR.CHANGE_PASSWORD.TITLE": "Change password",
+	"TRANSLATOR.HI": "Hi",
+	"TRANSLATOR.PROFILE.LABEL": "Account settings and more",
+	"TRANSLATOR.PROFILE.TITLE": "My profile",
 	"TRANSLATOR.SELECT": "Select your language"
 }

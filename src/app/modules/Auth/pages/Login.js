@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useFormik } from "formik";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
+import {useFormik} from "formik";
 import * as Yup from "yup";
-import { connect } from "react-redux";
-import { FormattedMessage, injectIntl } from "react-intl";
+import {connect} from "react-redux";
+import {FormattedMessage, injectIntl} from "react-intl";
 import * as auth from "../_redux/authRedux";
-import { login } from "../_redux/authCrud";
+import {login} from "../_redux/authCrud";
 
 /*
   INTL (i18n) docs:
@@ -25,24 +25,20 @@ const initialValues = {
 function Login(props) {
   // Name page
   document.title = "" + process.env.REACT_APP_NAME
-  const { intl } = props;
+  const {intl} = props;
   const [loading, setLoading] = useState(false);
   const LoginSchema = Yup.object().shape({
     username: Yup.string()
       .min(1, "Minimum 1 symbols")
       .max(50, "Maximum 50 symbols")
       .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
+        intl.formatMessage({id: "AUTH.VALIDATION.REQUIRED_FIELD"})
       ),
     password: Yup.string()
       .min(1, "Minimum 1 symbols")
       .max(50, "Maximum 50 symbols")
       .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
+        intl.formatMessage({id: "AUTH.VALIDATION.REQUIRED_FIELD"})
       ),
   });
 
@@ -69,11 +65,11 @@ function Login(props) {
   const formik = useFormik({
     initialValues,
     validationSchema: LoginSchema,
-    onSubmit: (values, { setStatus, setSubmitting }) => {
+    onSubmit: (values, {setStatus, setSubmitting}) => {
       enableLoading();
       setTimeout(() => {
         login(values.username, values.password)
-          .then(({ data: { access } }) => {
+          .then(({data: {access}}) => {
             disableLoading();
 
             props.login(access);
@@ -98,10 +94,10 @@ function Login(props) {
       {/* begin::Head */}
       <div className="text-center mb-10 mb-lg-20">
         <h3 className="font-size-h1">
-          <FormattedMessage id="AUTH.LOGIN.TITLE" />
+          <FormattedMessage id="AUTH.LOGIN.TITLE"/>
         </h3>
         <p className="text-muted font-weight-bold">
-          Enter your username and password
+          <FormattedMessage id="AUTH.LOGIN.TITLE_2"/>
         </p>
       </div>
       {/* end::Head */}
@@ -157,7 +153,7 @@ function Login(props) {
             className="text-dark-50 text-hover-primary my-3 mr-2"
             id="kt_login_forgot"
           >
-            <FormattedMessage id="AUTH.GENERAL.FORGOT_BUTTON" />
+            <FormattedMessage id="AUTH.GENERAL.FORGOT_BUTTON"/>
           </Link>
           <button
             id="kt_login_signin_submit"
@@ -165,7 +161,7 @@ function Login(props) {
             disabled={formik.isSubmitting}
             className={`btn btn-primary font-weight-bold px-9 py-4 my-3`}
           >
-            <span>Sign In</span>
+            <span>{intl.formatMessage({id: "AUTH.LOGIN.BUTTON"})}</span>
             {loading && <span className="ml-3 spinner spinner-white"></span>}
           </button>
         </div>

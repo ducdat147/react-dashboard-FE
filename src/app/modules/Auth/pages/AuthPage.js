@@ -32,8 +32,8 @@ export function AuthPage() {
               <Link to="/" className="flex-column-auto mt-5 pb-lg-0 pb-10">
                 <img
                   alt="Logo"
-                  className="max-h-70px"
-                  src={toAbsoluteUrl("/media/logos/logo-letter-1.png")}
+                  className="max-h-50px max-h-xl-150xp"
+                  src={toAbsoluteUrl("/media/logos/logo-letter.png")}
                 />
               </Link>
               {/* end:: Aside header */}
@@ -43,23 +43,22 @@ export function AuthPage() {
                 <h3 className="font-size-h1 mb-5 text-white">
                   <FormattedMessage id="AUTH.LABEL.TITLE" /> {process.env.REACT_APP_NAME}
                 </h3>
-                <p className="font-weight-lighter text-white opacity-80">
-                  The ultimate Bootstrap & React 16 admin theme framework for
-                  next generation web apps.
-                </p>
               </div>
               {/* end:: Aside content */}
 
               {/* start:: Aside footer for desktop */}
               <div className="d-none flex-column-auto d-lg-flex justify-content-between mt-10">
                 <div className="opacity-70 font-weight-bold	text-white">
-                  &copy; {today.toString()}
+                  {today.toString()} &copy; {" "}
+                  {process.env.REACT_APP_NAME}
                 </div>
+                {/*
                 <div className="d-flex">
                   <Link to="/terms" className="text-white ml-10">
                     Contact
                   </Link>
                 </div>
+                */}
               </div>
               {/* end:: Aside footer for desktop */}
             </div>
@@ -90,8 +89,10 @@ export function AuthPage() {
             {/* begin::Mobile footer */}
             <div className="d-flex d-lg-none flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
               <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
-                &copy; 2020 Metronic
+                {today.toString()} &copy; {" "}
+                {process.env.REACT_APP_NAME}
               </div>
+              {/*
               <div className="d-flex order-1 order-sm-2 my-2">
                 <Link to="/terms" className="text-dark-75 text-hover-primary">
                   Privacy
@@ -109,6 +110,7 @@ export function AuthPage() {
                   Contact
                 </Link>
               </div>
+              */}
             </div>
             {/* end::Mobile footer */}
           </div>
