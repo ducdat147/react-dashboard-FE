@@ -3,7 +3,6 @@ import { Redirect, Switch} from "react-router-dom";
 import { LayoutSplashScreen, ContentRoute } from "../_metronic/layout";
 import { BuilderPage } from "./pages/BuilderPage";
 import { MyPage } from "./pages/MyPage";
-import { DashboardPage } from "./pages/DashboardPage";
 
 export default function BasePage() {
   // useEffect(() => {
@@ -16,9 +15,8 @@ export default function BasePage() {
       <Switch>
         {
           /* Redirect from root URL to /dashboard. */
-          <Redirect exact from="/" to="/dashboard" />
+          <Redirect exact from="/" to="/my-page" />
         }
-        <ContentRoute path="/dashboard" component={DashboardPage} />
         <ContentRoute path="/builder" component={BuilderPage} />
         <ContentRoute path="/my-page" component={MyPage} />
         <Redirect to="error/error-v1" />

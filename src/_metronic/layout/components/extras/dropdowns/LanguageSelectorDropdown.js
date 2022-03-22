@@ -1,6 +1,7 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
 import React from "react";
 import clsx from "clsx";
+import { useIntl } from "react-intl";
 import { Dropdown } from "react-bootstrap";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { toAbsoluteUrl } from "../../../../_helpers";
@@ -21,6 +22,7 @@ const languages = [
 ];
 
 export function LanguageSelectorDropdown() {
+  const intl = useIntl();
   const lang = useLang();
   const currentLanguage = languages.find((x) => x.lang === lang);
   return (
@@ -32,7 +34,7 @@ export function LanguageSelectorDropdown() {
         <OverlayTrigger
           placement="bottom"
           overlay={
-            <Tooltip id="language-panel-tooltip">Select Language</Tooltip>
+            <Tooltip id="language-panel-tooltip">{intl.formatMessage({ id: "LAYOUT.LANGUAGE.SELECT_LANGUAGE" })}</Tooltip>
           }
         >
           <div className="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">

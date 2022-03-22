@@ -62,6 +62,7 @@ export function MetronicSubheaderProvider({ children }) {
   const [title, setTitle] = useState("");
   const [breadcrumbs, setBreadcrumbs] = useState([]);
   const value = { title, setTitle, breadcrumbs, setBreadcrumbs };
+  document.title = [value.title, process.env.REACT_APP_NAME].join(" | ")
   return (
     <SubheaderContext.Provider value={value}>
       {children}

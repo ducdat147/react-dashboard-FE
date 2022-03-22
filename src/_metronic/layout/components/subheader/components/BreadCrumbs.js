@@ -10,7 +10,7 @@ export function BreadCrumbs({ items }) {
   return (
     <ul className="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2">
       <li className="breadcrumb-item">
-        <Link to="/dashboard">
+        <Link to="/">
           <i className="flaticon2-shelter text-muted icon-1x" />
         </Link>
       </li>

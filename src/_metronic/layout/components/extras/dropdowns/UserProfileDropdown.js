@@ -8,7 +8,7 @@ import objectPath from "object-path";
 import { useHtmlClassService } from "../../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../../_helpers";
 import { DropdownTopbarItemToggler } from "../../../../_partials/dropdowns";
-import {FormattedMessage, injectIntl} from "react-intl";
+import {FormattedMessage} from "react-intl";
 
 export function UserProfileDropdown() {
   const { user } = useSelector((state) => state.auth);
