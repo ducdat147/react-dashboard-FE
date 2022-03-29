@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {useFormik} from "formik";
 import * as Yup from "yup";
 import {connect} from "react-redux";
-import {FormattedMessage, injectIntl} from "react-intl";
+import {FormattedMessage, injectIntl, useIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import {login} from "../_redux/authCrud";
 
@@ -24,8 +24,9 @@ const initialValues = {
 
 function Login(props) {
   // Name page
-  document.title = "" + process.env.REACT_APP_NAME
-  const {intl} = props;
+  const intl = useIntl();
+  const pageName = intl.formatMessage({ id: "AUTH.LOGIN.NAME_PAGE" });
+  document.title = [pageName, process.env.REACT_APP_NAME].join(" | ");
   const [loading, setLoading] = useState(false);
   const LoginSchema = Yup.object().shape({
     username: Yup.string()
@@ -71,7 +72,6 @@ function Login(props) {
         login(values.username, values.password)
           .then(({data: {access}}) => {
             disableLoading();
-
             props.login(access);
           })
           .catch(() => {

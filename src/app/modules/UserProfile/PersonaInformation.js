@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from 'moment';
 import { Link } from "react-router-dom";
 import { useSelector, shallowEqual, connect, useDispatch } from "react-redux";
 import { useFormik } from "formik";
@@ -41,24 +42,23 @@ function PersonaInformation(props) {
   };
   // UI Helpers
   const initialValues = {
-    pic: user.pic,
+    username: user.username,
     firstname: user.firstname,
     lastname: user.lastname,
-    companyName: user.companyName,
     phone: user.phone,
     email: user.email,
-    website: user.website,
+    birthday: moment(user.birthday).format("DD-MM-YYYY"),
   };
+  console.log(initialValues)
   const Schema = Yup.object().shape({
-    pic: Yup.string(),
+    username: Yup.string(),
     firstname: Yup.string().required("First name is required"),
     lastname: Yup.string().required("Last name is required"),
-    companyName: Yup.string(),
     phone: Yup.string().required("Phone is required"),
     email: Yup.string()
       .email("Wrong email format")
       .required("Email is required"),
-    website: Yup.string(),
+    birthday: Yup.string(),
   });
   const getInputClasses = (fieldname) => {
     if (formik.touched[fieldname] && formik.errors[fieldname]) {
@@ -120,7 +120,7 @@ function PersonaInformation(props) {
             {formik.isSubmitting}
           </button>
           <Link
-            to="/user-profile/profile-overview"
+            to="/user-profile/personal-information"
             className="btn btn-secondary"
           >
             Cancel
@@ -132,12 +132,14 @@ function PersonaInformation(props) {
       <div className="form">
         {/* begin::Body */}
         <div className="card-body">
+          {/* begin::Customer Information */}
           <div className="row">
             <label className="col-xl-3"></label>
             <div className="col-lg-9 col-xl-6">
-              <h5 className="font-weight-bold mb-6">Customer Info</h5>
+              <h5 className="font-weight-bold mb-6">Customer Information</h5>
             </div>
           </div>
+          {/* begin::Avatar */}
           <div className="form-group row">
             <label className="col-xl-3 col-lg-3 col-form-label">Avatar</label>
             <div className="col-lg-9 col-xl-6">
@@ -152,7 +154,7 @@ function PersonaInformation(props) {
               >
                 <div
                   className="image-input-wrapper"
-                  style={{ backgroundImage: `${getUserPic()}` }}
+                  // style={{ backgroundImage: `${getUserPic()}` }}
                 />
                 <label
                   className="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
@@ -195,6 +197,7 @@ function PersonaInformation(props) {
               </span>
             </div>
           </div>
+          {/* begin::First name */}
           <div className="form-group row">
             <label className="col-xl-3 col-lg-3 col-form-label">
               First Name
@@ -203,9 +206,7 @@ function PersonaInformation(props) {
               <input
                 type="text"
                 placeholder="First name"
-                className={`form-control form-control-lg form-control-solid ${getInputClasses(
-                  "firstname"
-                )}`}
+                className={`form-control form-control-lg form-control-solid ${getInputClasses("firstname")}`}
                 name="firstname"
                 {...formik.getFieldProps("firstname")}
               />
@@ -216,6 +217,7 @@ function PersonaInformation(props) {
               ) : null}
             </div>
           </div>
+          {/* begin::Last name */}
           <div className="form-group row">
             <label className="col-xl-3 col-lg-3 col-form-label">
               Last Name
@@ -224,9 +226,7 @@ function PersonaInformation(props) {
               <input
                 type="text"
                 placeholder="Last name"
-                className={`form-control form-control-lg form-control-solid ${getInputClasses(
-                  "lastname"
-                )}`}
+                className={`form-control form-control-lg form-control-solid ${getInputClasses("lastname")}`}
                 name="lastname"
                 {...formik.getFieldProps("lastname")}
               />
@@ -235,30 +235,7 @@ function PersonaInformation(props) {
               ) : null}
             </div>
           </div>
-          <div className="form-group row">
-            <label className="col-xl-3 col-lg-3 col-form-label">
-              Company Name
-            </label>
-            <div className="col-lg-9 col-xl-6">
-              <input
-                type="text"
-                placeholder="Company name"
-                className={`form-control form-control-lg form-control-solid`}
-                name="companyName"
-                {...formik.getFieldProps("companyName")}
-              />
-              <span className="form-text text-muted">
-                If you want your invoices addressed to a company. Leave blank to
-                use your full name.
-              </span>
-            </div>
-          </div>
-          <div className="row">
-            <label className="col-xl-3"></label>
-            <div className="col-lg-9 col-xl-6">
-              <h5 className="font-weight-bold mt-10 mb-6">Contact Info</h5>
-            </div>
-          </div>
+          {/* begin::Phone number */}
           <div className="form-group row">
             <label className="col-xl-3 col-lg-3 col-form-label">
               Contact Phone
@@ -273,9 +250,7 @@ function PersonaInformation(props) {
                 <input
                   type="text"
                   placeholder="+1(123)112-11-11"
-                  className={`form-control form-control-lg form-control-solid ${getInputClasses(
-                    "phone"
-                  )}`}
+                  className={`form-control form-control-lg form-control-solid ${getInputClasses("phone")}`}
                   name="phone"
                   {...formik.getFieldProps("phone")}
                 />
@@ -290,6 +265,34 @@ function PersonaInformation(props) {
               </span>
             </div>
           </div>
+          {/* begin::Account Information */}
+          <div className="row">
+            <label className="col-xl-3"></label>
+            <div className="col-lg-9 col-xl-6">
+              <h5 className="font-weight-bold mt-10 mb-6">Accounts Information</h5>
+            </div>
+          </div>
+          {/* begin::Username */}
+          <div className="form-group row">
+            <label className="col-xl-3 col-lg-3 col-form-label">
+              Username
+            </label>
+            <div className="col-lg-9 col-xl-6">
+              <input
+                type="text"
+                placeholder="Username"
+                className={`form-control form-control-lg form-control-solid ${getInputClasses("username")}`}
+                name="firstname"
+                {...formik.getFieldProps("username")}
+              />
+              {formik.touched.username && formik.errors.username ? (
+                <div className="invalid-feedback">
+                  {formik.errors.username}
+                </div>
+              ) : null}
+            </div>
+          </div>
+          {/* begin::Email address */}
           <div className="form-group row">
             <label className="col-xl-3 col-lg-3 col-form-label">
               Email Address
@@ -304,9 +307,7 @@ function PersonaInformation(props) {
                 <input
                   type="email"
                   placeholder="Email"
-                  className={`form-control form-control-lg form-control-solid ${getInputClasses(
-                    "email"
-                  )}`}
+                  className={`form-control form-control-lg form-control-solid ${getInputClasses("email")}`}
                   name="email"
                   {...formik.getFieldProps("email")}
                 />
@@ -314,27 +315,6 @@ function PersonaInformation(props) {
               {formik.touched.email && formik.errors.email ? (
                 <div className="invalid-feedback display-block">
                   {formik.errors.email}
-                </div>
-              ) : null}
-            </div>
-          </div>
-          <div className="form-group row">
-            <label className="col-xl-3 col-lg-3 col-form-label">
-              Company Site
-            </label>
-            <div className="col-lg-9 col-xl-6">
-              <div className="input-group input-group-lg input-group-solid">
-                <input
-                  type="text"
-                  placeholder="https://keenthemes.com"
-                  className={`form-control form-control-lg form-control-solid`}
-                  name="website"
-                  {...formik.getFieldProps("website")}
-                />
-              </div>
-              {formik.touched.website && formik.errors.website ? (
-                <div className="invalid-feedback display-block">
-                  {formik.errors.website}
                 </div>
               ) : null}
             </div>

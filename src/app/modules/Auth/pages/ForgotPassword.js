@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import * as Yup from "yup";
-import { injectIntl } from "react-intl";
+import {injectIntl, useIntl} from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { requestPassword } from "../_redux/authCrud";
 
@@ -12,7 +12,9 @@ const initialValues = {
 };
 
 function ForgotPassword(props) {
-  const { intl } = props;
+  const intl = useIntl();
+  const pageName = intl.formatMessage({ id: "AUTH.FORGOT.TITLE" });
+  document.title = [pageName, process.env.REACT_APP_NAME].join(" | ");
   const [isRequested, setIsRequested] = useState(false);
   const ForgotPasswordSchema = Yup.object().shape({
     email: Yup.string()
@@ -63,7 +65,7 @@ function ForgotPassword(props) {
       {!isRequested && (
         <div className="login-form login-forgot" style={{ display: "block" }}>
           <div className="text-center mb-10 mb-lg-20">
-            <h3 className="font-size-h1">Forgotten Password ?</h3>
+            <h3 className="font-size-h1">{intl.formatMessage({id: "AUTH.FORGOT.TITLE"})}</h3>
             <div className="text-muted font-weight-bold">
               Enter your email to reset your password
             </div>
@@ -85,6 +87,7 @@ function ForgotPassword(props) {
                 className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
                   "email"
                 )}`}
+                placeholder={intl.formatMessage({id: "AUTH.FORGOT.FORM.EMAIL"})}
                 name="email"
                 {...formik.getFieldProps("email")}
               />

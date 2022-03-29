@@ -111,7 +111,7 @@ export function UserProfileDropdown() {
             </div>
           </Link>
 
-          <Link to="/user-change-password" className="navi-item px-8 cursor-pointer">
+          <Link to="/user-profile/change-password" className="navi-item px-8 cursor-pointer">
             <div className="navi-link">
               <div className="navi-icon mr-2">
                 <i className="fas fa-lock text-danger" />

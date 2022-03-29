@@ -1,20 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { shallowEqual, useSelector } from "react-redux";
-import { Dropdown, OverlayTrigger, Tooltip } from "react-bootstrap";
+import React, {useEffect} from "react";
+import {NavLink} from "react-router-dom";
+import {shallowEqual, useSelector} from "react-redux";
+import {Dropdown, OverlayTrigger, Tooltip} from "react-bootstrap";
 import SVG from "react-inlinesvg";
-import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
+import {toAbsoluteUrl} from "../../../../_metronic/_helpers";
 import {
   DropdownCustomToggler,
   DropdownMenu4,
 } from "../../../../_metronic/_partials/dropdowns";
 
 export function ProfileCard() {
-  const user = useSelector(({ auth }) => auth.user, shallowEqual);
+  const user = useSelector(({auth}) => auth.user, shallowEqual);
 
   useEffect(() => {
-    return () => {};
+    return () => {
+    };
   }, [user]);
 
   return (
@@ -49,7 +50,11 @@ export function ProfileCard() {
                 <div className="symbol symbol-60 symbol-xxl-100 mr-5 align-self-start align-self-xxl-center">
                   <div
                     className="symbol-label"
-                    style={{ backgroundImage: `url(${user.pic})` }}
+                    style={{
+                      backgroundImage: `url(${toAbsoluteUrl(
+                        "/media/users/blank.png"
+                      )}`
+                    }}
                   ></div>
                   {/* style="background-i
                   mage:url('/metronic/theme/html/demo1/dist/assets/media/users/300_21.jpg')" */}
@@ -62,7 +67,6 @@ export function ProfileCard() {
                   >
                     {user.firstname} {user.lastname}
                   </a>
-                  <div className="text-muted">{user.occupation}</div>
                   <div className="mt-2">
                     <a
                       href="#"
@@ -92,34 +96,10 @@ export function ProfileCard() {
                   <span className="font-weight-bold mr-2">Phone:</span>
                   <span className="text-muted">{user.phone}</span>
                 </div>
-                <div className="d-flex align-items-center justify-content-between">
-                  <span className="font-weight-bold mr-2">Location:</span>
-                  <span className="text-muted">{user.address.city}</span>
-                </div>
               </div>
               {/* end::Contact */}
               {/* begin::Nav */}
               <div className="navi navi-bold navi-hover navi-active navi-link-rounded">
-                <div className="navi-item mb-2">
-                  <NavLink
-                    to="/user-profile/profile-overview"
-                    className="navi-link py-4"
-                    activeClassName="active"
-                  >
-                    <span className="navi-icon mr-2">
-                      <span className="svg-icon">
-                        <SVG
-                          src={toAbsoluteUrl(
-                            "/media/svg/icons/Design/Layers.svg"
-                          )}
-                        ></SVG>{" "}
-                      </span>
-                    </span>
-                    <span className="navi-text font-size-lg">
-                      Profile Overview
-                    </span>
-                  </NavLink>
-                </div>
                 <div className="navi-item mb-2">
                   <NavLink
                     to="/user-profile/personal-information"
@@ -184,92 +164,6 @@ export function ProfileCard() {
                       </span>
                     </span>
                   </NavLink>
-                </div>
-                <div className="navi-item mb-2">
-                  <NavLink
-                    to="/user-profile/email-settings"
-                    className="navi-link py-4"
-                    activeClassName="active"
-                  >
-                    <span className="navi-icon mr-2">
-                      <span className="svg-icon">
-                        <SVG
-                          src={toAbsoluteUrl(
-                            "/media/svg/icons/Communication/Mail-opened.svg"
-                          )}
-                        ></SVG>{" "}
-                      </span>
-                    </span>
-                    <span className="navi-text font-size-lg">
-                      Email settings
-                    </span>
-                  </NavLink>
-                </div>
-                <div className="navi-item mb-2">
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={<Tooltip>Coming soon...</Tooltip>}
-                  >
-                    <a href="#" className="navi-link py-4">
-                      <span className="navi-icon mr-2">
-                        <span className="svg-icon">
-                          <SVG
-                            src={toAbsoluteUrl(
-                              "/media/svg/icons/Layout/Layout-top-panel-6.svg"
-                            )}
-                          ></SVG>{" "}
-                        </span>
-                      </span>
-                      <span className="navi-text font-size-lg">
-                        Saved Credit Cards
-                      </span>
-                    </a>
-                  </OverlayTrigger>
-                </div>
-                <div className="navi-item mb-2">
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={<Tooltip>Coming soon...</Tooltip>}
-                  >
-                    <a href="#" className="navi-link py-4">
-                      <span className="navi-icon mr-2">
-                        <span className="svg-icon">
-                          <SVG
-                            src={toAbsoluteUrl(
-                              "/media/svg/icons/Files/File.svg"
-                            )}
-                          ></SVG>{" "}
-                        </span>
-                      </span>
-                      <span className="navi-text font-size-lg">
-                        Tax information
-                      </span>
-                      <span className="navi-label">
-                        <span className="label label-light-primary label-inline font-weight-bold">
-                          new
-                        </span>
-                      </span>
-                    </a>
-                  </OverlayTrigger>
-                </div>
-                <div className="navi-item mb-2">
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={<Tooltip>Coming soon...</Tooltip>}
-                  >
-                    <a href="#" className="navi-link py-4">
-                      <span className="navi-icon mr-2">
-                        <span className="svg-icon">
-                          <SVG
-                            src={toAbsoluteUrl(
-                              "/media/svg/icons/Text/Article.svg"
-                            )}
-                          ></SVG>{" "}
-                        </span>
-                      </span>
-                      <span className="navi-text">Statements</span>
-                    </a>
-                  </OverlayTrigger>
                 </div>
               </div>
               {/* end::Nav */}

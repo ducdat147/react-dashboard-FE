@@ -1,8 +1,12 @@
-import React, { Suspense} from "react";
-import { Redirect, Switch} from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import {Redirect, Route, Switch} from "react-router-dom";
 import { LayoutSplashScreen, ContentRoute } from "../_metronic/layout";
 import { BuilderPage } from "./pages/BuilderPage";
 import { MyPage } from "./pages/MyPage";
+
+const UserProfilepage = lazy(() =>
+    import("./modules/UserProfile/UserProfilePage")
+);
 
 export default function BasePage() {
   // useEffect(() => {
@@ -19,6 +23,8 @@ export default function BasePage() {
         }
         <ContentRoute path="/builder" component={BuilderPage} />
         <ContentRoute path="/my-page" component={MyPage} />
+
+        <Route path="/user-profile" component={UserProfilepage} />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>

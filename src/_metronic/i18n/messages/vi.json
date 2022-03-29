@@ -1,6 +1,7 @@
 {
 	"ASIDE_MENU.MY_PAGE": "Trang của tôi",
 	"AUTH.FORGOT.DESC": "Nhập thông tin để tạo tài khoản của bạn",
+	"AUTH.FORGOT.FORM.EMAIL": "Email",
 	"AUTH.FORGOT.SUCCESS": "Tài khoản của bạn đã được thiết lập lại thành công.",
 	"AUTH.FORGOT.TITLE": "Quên mật khẩu?",
 	"AUTH.GENERAL.BACK_BUTTON": "Back",
@@ -19,6 +20,7 @@
 	"AUTH.INPUT.USERNAME": "Tên đăng nhập",
 	"AUTH.LABEL.TITLE": "Chào mừng bạn đến với",
 	"AUTH.LOGIN.BUTTON": "Đăng nhập",
+	"AUTH.LOGIN.NAME_PAGE": "Đăng nhập",
 	"AUTH.LOGIN.TITLE": "Đăng nhập tài khoản",
 	"AUTH.LOGIN.TITLE_2": "Nhập tên đăng nhập và mật khẩu của bạn",
 	"AUTH.REGISTER.DESC": "Nhập thông tin của bạn để tạo tài khoản của bạn",
